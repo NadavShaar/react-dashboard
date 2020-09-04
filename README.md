@@ -1,2 +1,2 @@
-# React-boilerplate
-A boilerplate of react dev environment using babel &amp; webpack
+# React-Dashboard
+A showcase of chart widgets in a grid layout.
