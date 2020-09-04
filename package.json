@@ -3,13 +3,13 @@
   "version": "1.0.0",
   "description": "A Webpack + Babel + React Starter bolerplate ",
   "main": "index.js",
-  "homepage": "https://NadavShaar.github.io/react-dashboard/",
+  "homepage": "https://nadavshaar.github.io/react-dashboard/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --hot --mode development",
     "build": "webpack --mode production",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d ./dist"
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [
     "Autoprefixer",
