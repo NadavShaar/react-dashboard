@@ -1,0 +1,22 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    height: 100%;
+    font-family: sans-serif; 
+}
+
+#root {
+    height: 100%;
+}
+
+button {
+    cursor: pointer; 
+    outline: none; 
+    background: transparent;
+    border: none;
+    padding: 0;
+    height: 24px;
+}

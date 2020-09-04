@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "A Webpack + Babel + React Starter bolerplate ",
   "main": "index.js",
+  "homepage": "https://NadavShaar.github.io/react-dashboard/",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "webpack-dev-server --open --hot --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "predeploy": "npm run dist",
+    "deploy": "gh-pages -d dist"
   },
   "keywords": [
     "Autoprefixer",
@@ -26,10 +29,10 @@
     "@babel/preset-react": "^7.10.4",
     "autoprefixer": "^9.8.5",
     "babel-loader": "^8.1.0",
-    "css-loader": "^3.6.0",
+    "css-loader": "^4.2.2",
     "file-loader": "^6.0.0",
+    "gh-pages": "^3.1.0",
     "html-webpack-plugin": "^4.3.0",
-    "postcss-loader": "^3.0.0",
     "style-loader": "^1.2.1",
     "url-loader": "^4.1.0",
     "webpack": "^4.43.0",
@@ -37,7 +40,14 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "axios": "^0.20.0",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-grid-layout": "^1.0.0",
+    "react-redux": "^7.2.1",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
+    "redux-thunk": "^2.3.0",
+    "resize-observer-polyfill": "^1.5.1"
   }
 }
