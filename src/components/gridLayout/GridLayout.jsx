@@ -39,7 +39,7 @@ const GridLayout = props => {
             containerPadding={[20, 20]}
             margin={[20, 20]}
             draggableHandle='.draggableHandle'
-            style={{ minHeight: '100%' }}
+            style={{ minHeight: '100%', width: '100%', flex: 1 }}
         >
             {
                 visibleWidgets.map((item, idx) => {

@@ -2,6 +2,39 @@ import React from 'react';
 import GridLayout from '../gridLayout/GridLayout';
 import { useSelector, useDispatch } from 'react-redux';
 import { updateWidgets, resetWidgets } from './../../store/actions';
+import WithLoading from './../../HOCs/WithLoading';
+
+const GridLayoutWithLoading = WithLoading(GridLayout);
+const WidgetsListWithLoading = WithLoading(props => {
+
+    const {
+        items,
+        onChange
+    } = props;
+
+    return (
+        <>
+            {
+                items.map((item, idx) => {
+                    return (
+                        <div 
+                            key={ idx } 
+                            style={ styles.sideBarRow }
+                        >
+                            <span>{ item.label }</span>
+                            <input 
+                                style={{ cursor: 'pointer' }} 
+                                type='checkbox' 
+                                checked={ item.visible } 
+                                onChange={ e => onChange(item) } 
+                            />
+                        </div>
+                    )
+                })
+            }
+        </>
+    )
+});
 
 const Dashboard = props => {
     
@@ -33,38 +66,19 @@ const Dashboard = props => {
                     >RESET
                     </button>
                 </div>
-                {
-                    widgetsData ?
-                        widgetsData.map((widget, idx) => {
-                            return (
-                                <div 
-                                    key={idx} 
-                                    style={ styles.sideBarRow }
-                                >
-                                    <span>{ widget.label }</span>
-                                    <input 
-                                        style={{ cursor: 'pointer' }} 
-                                        type='checkbox' 
-                                        checked={widget.visible} 
-                                        onChange={e => updateWidgetVisibility(widget)} 
-                                    />
-                                </div>
-                            )
-                        })
-                        :
-                        null
-                }
+                <WidgetsListWithLoading 
+                    items={ widgetsData } 
+                    onChange={ updateWidgetVisibility }
+                    isLoading={ !widgetsData }
+                />
             </div>
             <div style={ styles.gridWrapper }>
-                {
-                    (widgetsData) ? 
-                        <GridLayout 
-                            route='dashboard' 
-                            items={widgetsData}
-                            onRemove={updateWidgetVisibility}
-                        />
-                        : null
-                }
+                <GridLayoutWithLoading 
+                    route='dashboard' 
+                    items={ widgetsData }
+                    onRemove={ updateWidgetVisibility }
+                    isLoading={ !widgetsData }
+                />
             </div>
         </div>
     )
@@ -88,9 +102,18 @@ const styles = {
     },
     sideBarHeader: { 
         width: '100%', 
-        height: 60, 
+        minHeight: 60, 
+        maxHeight: 60, 
         background: '#3f51b5', 
         color: '#fff', 
+        display: 'flex', 
+        alignItems: 'center', 
+        justifyContent: 'space-between', 
+        padding: '0 20px' 
+    },
+    sideBarRow: { 
+        width: '100%', 
+        height: 50, 
         display: 'flex', 
         alignItems: 'center', 
         justifyContent: 'space-between', 
@@ -102,16 +125,9 @@ const styles = {
         padding: '3px 6px', 
         borderRadius: 2 
     },
-    sideBarRow: { 
-        width: '100%', 
-        height: 50, 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'space-between', 
-        padding: '0 20px' 
-    },
     gridWrapper: { 
         flex: 1, 
+        width: '100%',
         overflowY: 'auto' 
     }
 }

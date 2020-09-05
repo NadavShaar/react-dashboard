@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
+import WithLoading from './../../HOCs/WithLoading';
 
-const closeIcon = <svg 
+const BoxWithLoader = WithLoading(props => props.children);
+
+const CLOSE_ICON = <svg 
     height="24" 
     viewBox="0 0 21 21" 
     width="24" 
@@ -18,7 +21,7 @@ const closeIcon = <svg
         <path d="m10.5 10.5-10-10z"/>
     </g>
 </svg>;
-const fullScreenIcon = <svg 
+const FULL_SCREEN_ICON = <svg 
     xmlns="http://www.w3.org/2000/svg" 
     width="16" 
     height="16" 
@@ -74,6 +77,7 @@ const GridLayoutBox = props => {
         style,
         onRemove,
         widget,
+        isLoading
     } = props;
 
     const boxRef = useRef(null);
@@ -93,15 +97,17 @@ const GridLayoutBox = props => {
                         onClick={e => handleFullScreen(boxRef)} 
                         style={ styles.fullScreenButton }
                     >
-                        { fullScreenIcon }
+                        { FULL_SCREEN_ICON }
                     </button>
                     <button onClick={e => onRemove(widget)}>
-                        { closeIcon }
+                        { CLOSE_ICON }
                     </button>
                 </div>
             </div>
             <div ref={boxRef} style={ styles.body }>
-                { children }
+                <BoxWithLoader isLoading={isLoading}>
+                    { children }
+                </BoxWithLoader>
             </div>
         </div>
     )
