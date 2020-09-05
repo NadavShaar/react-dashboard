@@ -80,7 +80,7 @@ const styles = {
     },
     sideBar: { 
         height: '100%', 
-        flexBasis: 350, 
+        flexBasis: 320, 
         background: '#fff', 
         display: 'flex', 
         flexDirection: 'column', 

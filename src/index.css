@@ -8,12 +8,6 @@ html, body {
     font-family: sans-serif; 
 }
 
-body {
-    min-width: 1200px;
-    overflow-y: hidden;
-    overflow-x: auto;
-}
-
 #root {
     height: 100%;
 }
