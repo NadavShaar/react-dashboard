@@ -13,15 +13,6 @@ const LOADER = <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" vi
         </g>
     </g>
 </svg>;
-const MOCK = [
-    { label: "WhatsApp Messenger", y: 6828},
-    { label: "Facebook Messenger", y: 5589},
-    { label: "SHAREit", y: 757},
-    { label: "UC Browser", y: 1744},
-    { label: "MX Player", y: 638},
-    { label: "Hotstar", y: 481},
-    { label: "Truecaller", y: 763}
-];
 
 const ChartWidget = props => {
 
@@ -41,7 +32,6 @@ const ChartWidget = props => {
                 setIsLoading(false);
             })
             .catch(err => {
-                setDataPoints(MOCK)
                 console.error(err);
                 setIsLoading(false);
             })

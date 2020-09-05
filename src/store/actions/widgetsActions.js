@@ -2,10 +2,6 @@ import requestHandler from './../../utils/requestHandler';
 import widgetsData from '../../config/widgets/dashboardWidgets';
 
 export const initWidgets = ({ route }) => {
-    // return { 
-    //     type: 'SET_WIDGETS',
-    //     payload: { route, data: widgetsData }
-    // }
     return dispatch => {
         requestHandler({ action: 'getWidgets', data: { route } })
             .then(res => { 
@@ -25,10 +21,6 @@ export const initWidgets = ({ route }) => {
 }
 
 export const updateWidgets = (data) => {
-    // return { 
-    //     type: 'SET_WIDGETS',
-    //     payload: data
-    // }
     return dispatch => {
         requestHandler({ action: 'setWidgets', data })
             .then(res => { 
@@ -45,10 +37,6 @@ export const updateWidgets = (data) => {
 
 export const resetWidgets = ({ route }) => {
     let data = { route, data: widgetsData };
-    // return { 
-    //     type: 'RESET_WIDGETS',
-    //     payload: data
-    // }
     return dispatch => {
         requestHandler({ action: 'setWidgets', data })
             .then(res => { 
