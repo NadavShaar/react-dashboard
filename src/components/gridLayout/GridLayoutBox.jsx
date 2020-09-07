@@ -92,7 +92,7 @@ const GridLayoutBox = props => {
                 <span style={ styles.label }>
                     { widget.label }
                 </span>
-                <div style={ styles.buttonsWrapper }>
+                <div className="draggableCancel" style={ styles.buttonsWrapper }>
                     <button 
                         onClick={e => handleFullScreen(boxRef)} 
                         style={ styles.fullScreenButton }

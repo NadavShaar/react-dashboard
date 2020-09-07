@@ -39,6 +39,7 @@ const GridLayout = props => {
             containerPadding={[20, 20]}
             margin={[20, 20]}
             draggableHandle='.draggableHandle'
+            draggableCancel='.draggableCancel'
             style={{ minHeight: '100%', width: '100%', flex: 1 }}
         >
             {
